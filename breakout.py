@@ -26,7 +26,7 @@ lives = 3
 all_sprites_list = pygame.sprite.Group()
  
 #Create the Paddle
-paddle = Paddle(LIGHTBLUE, 100, 10)
+paddle = Paddle(LIGHTBLUE, 70, 10)
 paddle.rect.x = 350
 paddle.rect.y = 560
 
@@ -96,7 +96,11 @@ while carryOn:
     if keys[pygame.K_LEFT]:
         paddle.moveLeft(5)
     if keys[pygame.K_RIGHT]:
-        paddle.moveRight(5) 
+        paddle.moveRight(5)
+    if keys[pygame.K_UP]:
+        paddle.moveUp(2)
+    if keys[pygame.K_DOWN]:
+        paddle.moveDown(2)  
         
     # --- Game logic should go here
     all_sprites_list.update()
