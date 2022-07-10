@@ -26,7 +26,7 @@ lives = 3
 all_sprites_list = pygame.sprite.Group()
  
 #Create the Paddle
-paddle = Paddle(LIGHTBLUE, 70, 10)
+paddle = Paddle(LIGHTBLUE, 80, 10)
 paddle.rect.x = 350
 paddle.rect.y = 560
 
@@ -37,40 +37,40 @@ ball.rect.y = 195
 
 #Create the brick sprite 
 all_bricks = pygame.sprite.Group()
-for i in range(7):
-    brick = Brick(RED,80,30)
-    brick.rect.x = 60 + i* 100
+for i in range(20):
+    brick = Brick(RED,30,20)
+    brick.rect.x = 10 + i* 50
     brick.rect.y = 60
     all_sprites_list.add(brick)
     all_bricks.add(brick)
-for i in range(7):
-    brick = Brick(ORANGE,80,30)
-    brick.rect.x = 60 + i* 100
-    brick.rect.y = 100
+for i in range(20):
+    brick = Brick(ORANGE,30,20)
+    brick.rect.x = 10 + i* 50
+    brick.rect.y = 90
     all_sprites_list.add(brick)
     all_bricks.add(brick)
-for i in range(7):
-    brick = Brick(YELLOW,80,30)
-    brick.rect.x = 60 + i* 100
-    brick.rect.y = 140
+for i in range(20):
+    brick = Brick(YELLOW,30,20)
+    brick.rect.x = 10 + i* 50
+    brick.rect.y = 120
     all_sprites_list.add(brick)
     all_bricks.add(brick)
-for i in range(7):
-    brick = Brick(RED,80,30)
-    brick.rect.x = 60 + i* 100
+for i in range(20):
+    brick = Brick(RED,30,20)
+    brick.rect.x = 10 + i* 50
+    brick.rect.y = 150
+    all_sprites_list.add(brick)
+    all_bricks.add(brick)
+for i in range(20):
+    brick = Brick(ORANGE,30,20)
+    brick.rect.x = 10 + i* 50
     brick.rect.y = 180
     all_sprites_list.add(brick)
     all_bricks.add(brick)
-for i in range(7):
-    brick = Brick(ORANGE,80,30)
-    brick.rect.x = 60 + i* 100
-    brick.rect.y = 220
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
-for i in range(7):
-    brick = Brick(YELLOW,80,30)
-    brick.rect.x = 60 + i* 100
-    brick.rect.y = 260
+for i in range(20):
+    brick = Brick(YELLOW,30,20)
+    brick.rect.x = 10 + i* 50
+    brick.rect.y = 210
     all_sprites_list.add(brick)
     all_bricks.add(brick)
 
