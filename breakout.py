@@ -11,11 +11,15 @@ screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Breakout Game by José Mota")
 
 # Define colors palette
+BLACK = (0,0,0)
 WHITE = (255,255,255)
 DARKBLUE = (36,90,190)
 LIGHTBLUE = (0,176,240)
 RED = (255,0,0)
 ORANGE = (255,100,0)
+BLUE = (0,191,255)
+PURPLE = (138,43,226)
+GREEN = (0,128,0)
 YELLOW = (255,255,0)
 
 # Global variables for Score and Lives
@@ -26,7 +30,7 @@ lives = 3
 all_sprites_list = pygame.sprite.Group()
  
 #Create the Paddle
-paddle = Paddle(LIGHTBLUE, 100, 10)
+paddle = Paddle(WHITE, 100, 10)
 paddle.rect.x = 350
 paddle.rect.y = 560
 
@@ -37,42 +41,15 @@ ball.rect.y = 500
 
 #Create the brick sprite 
 all_bricks = pygame.sprite.Group()
-for i in range(20):
-    brick = Brick(RED,30,10)
-    brick.rect.x = 10 + i* 50
-    brick.rect.y = 60
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
-for i in range(20):
-    brick = Brick(ORANGE,30,10)
-    brick.rect.x = 10 + i* 50
-    brick.rect.y = 90
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
-for i in range(20):
-    brick = Brick(YELLOW,30,10)
-    brick.rect.x = 10 + i* 50
-    brick.rect.y = 120
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
-for i in range(20):
-    brick = Brick(RED,30,10)
-    brick.rect.x = 10 + i* 50
-    brick.rect.y = 150
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
-for i in range(20):
-    brick = Brick(ORANGE,30,10)
-    brick.rect.x = 10 + i* 50
-    brick.rect.y = 180
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
-for i in range(20):
-    brick = Brick(YELLOW,30,10)
-    brick.rect.x = 10 + i* 50
-    brick.rect.y = 210
-    all_sprites_list.add(brick)
-    all_bricks.add(brick)
+START = 90
+for color in [RED, PURPLE, GREEN, ORANGE, YELLOW]:
+    START += 20
+    for i in range(40):
+        brick = Brick(color,20,20)
+        brick.rect.x = i*20
+        brick.rect.y = START
+        all_sprites_list.add(brick)
+        all_bricks.add(brick)
 
 # Add the paddle to the list of sprites
 all_sprites_list.add(paddle)
@@ -94,13 +71,15 @@ while carryOn:
     #Moving the paddle when the use uses the arrow keys 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        paddle.moveLeft(5)
+        paddle.moveLeft(6)
     if keys[pygame.K_RIGHT]:
-        paddle.moveRight(5)
-    if keys[pygame.K_UP]:
-        paddle.moveUp(2)
-    if keys[pygame.K_DOWN]:
-        paddle.moveDown(2)  
+        paddle.moveRight(6)
+    
+    # Allow paddle to move Up and Down
+    # if keys[pygame.K_UP]:
+    #     paddle.moveUp(2)
+    # if keys[pygame.K_DOWN]:
+    #     paddle.moveDown(2)  
         
     # --- Game logic should go here
     all_sprites_list.update()
@@ -132,20 +111,22 @@ while carryOn:
     
     #Check if there is the ball collides with any of bricks
     brick_collision_list = pygame.sprite.spritecollide(ball,all_bricks,False)
+    remaining_bricks = int(len(all_bricks))
     for brick in brick_collision_list:
       ball.bounce()
       score += 1
       brick.kill()
-      if len(all_bricks)==0:
-           #Display Level Complete Message for 3 seconds
-            font = pygame.font.Font(None, 74)
-            text = font.render("LEVEL COMPLETE", 1, WHITE)
-            screen.blit(text, (200,300))
-            pygame.display.flip()
-            pygame.time.wait(3000)
- 
-            #Stop the Game
-            carryOn=False
+      remaining_bricks -= 1 
+      if remaining_bricks == 0:
+        #Display Level Complete Message for 3 seconds
+        font = pygame.font.Font(None, 74)
+        text = font.render("LEVEL COMPLETE", 1, WHITE)
+        screen.blit(text, (200,300))
+        pygame.display.flip()
+        pygame.time.wait(3000)
+
+        #Stop the Game
+        carryOn=False
 
     # --- Drawing code should go here
     # First, clear the screen to dark blue. 
