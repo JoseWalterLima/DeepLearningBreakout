@@ -32,8 +32,8 @@ paddle.rect.y = 560
 
 #Create the ball sprite
 ball = Ball(WHITE,10,10)
-ball.rect.x = 345
-ball.rect.y = 195
+ball.rect.x = 400
+ball.rect.y = 500
 
 #Create the brick sprite 
 all_bricks = pygame.sprite.Group()
@@ -128,8 +128,6 @@ while carryOn:
         
     #Detect collisions between the ball and the paddles
     if pygame.sprite.collide_mask(ball, paddle):
-      ball.rect.x -= ball.velocity[0]
-      ball.rect.y -= ball.velocity[1]
       ball.bounce()
     
     #Check if there is the ball collides with any of bricks

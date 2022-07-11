@@ -1,5 +1,6 @@
 import pygame
 from random import randint
+import random
 
 BLACK = (0,0,0)
  
@@ -19,7 +20,8 @@ class Ball(pygame.sprite.Sprite):
         # Draw the ball (a rectangle!)
         pygame.draw.rect(self.image, color, [0, 0, width, height])
         
-        self.velocity = [randint(4,8),randint(-8,8)]
+        #self.velocity = [randint(4,8),randint(-8,8)]
+        self.velocity = [2,5]
         
         # Fetch the rectangle object that has the dimensions of the image.
         self.rect = self.image.get_rect()
@@ -29,5 +31,5 @@ class Ball(pygame.sprite.Sprite):
         self.rect.y += self.velocity[1]
     
     def bounce(self):
-        self.velocity[0] = -self.velocity[0]
-        self.velocity[1] = randint(-8,8)
+        self.velocity[0] = self.velocity[0] * round(random.uniform(1, 1.5))
+        self.velocity[1] = -self.velocity[1] * round(random.uniform(1, 1.5))
