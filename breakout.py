@@ -3,6 +3,7 @@ import pygame
 from paddle import Paddle
 from ball import Ball
 from brick import Brick
+import time
 pygame.init()
 
 # Create game window
@@ -147,7 +148,7 @@ while CARRYON:
     pygame.display.flip()
 
     # --- Limit to 60 frames per second
-    clock.tick(100)
+    clock.tick(60)
 
 #Once we have exited the main program loop we can stop the game engine:
 pygame.quit()
