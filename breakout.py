@@ -43,7 +43,8 @@ ball.rect.y = 500
 #Create the brick sprite
 all_bricks = pygame.sprite.Group()
 START = 90
-for color in [RED, PURPLE, GREEN, ORANGE, YELLOW]:
+#for color in [RED, PURPLE, GREEN, ORANGE, YELLOW]:
+for color in [RED, RED, RED, RED]:
     START += 20
     for i in range(40):
         brick = Brick(color,20,20)
