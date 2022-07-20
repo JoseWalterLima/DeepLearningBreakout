@@ -8,7 +8,6 @@ top = y/2 - 370
 right = x/2 + 470
 bottom = y/2 + 370
 ss_region = (left, top, right, bottom)
-#time.sleep(4)
 ss_img = ImageGrab.grab(ss_region).convert("L")
 
 ss_img.save("SS3.jpg")
