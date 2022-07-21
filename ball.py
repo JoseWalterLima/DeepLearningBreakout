@@ -20,7 +20,7 @@ class Ball(pygame.sprite.Sprite):
         pygame.draw.rect(self.image, color, [0, 0, width, height])
         
         # Ball initial velocity
-        IVX = [-3, -2, 2, 3]
+        IVX = [-4, -3, 3, 4]
         IVY = [-6, -5]
         self.velocity = [choice(IVX), choice(IVY)]
         

@@ -3,7 +3,7 @@ import pyautogui
 import time
 
 x, y = pyautogui.size()
-left = x/2 - 470
+left = x/2 - 500
 top = y/2 - 370
 right = x/2 + 470
 bottom = y/2 + 370
