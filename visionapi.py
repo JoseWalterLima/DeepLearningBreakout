@@ -13,7 +13,7 @@ ss_region = (left, top, right, bottom)
 t1 = time.time()
 ss_img = ImageGrab.grab(ss_region).convert("L").resize((200,200))
 
-# Transforma image to pytorch tensor
+# Transform image to pytorch tensor
 transform = transforms.Compose([transforms.PILToTensor()])
 ss_img = transform(ss_img)
 t2 = time.time()
