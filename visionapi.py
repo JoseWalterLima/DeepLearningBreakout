@@ -10,4 +10,5 @@ bottom = y/2 + 370
 ss_region = (left, top, right, bottom)
 time.sleep(5)
 ss_img = ImageGrab.grab(ss_region).convert("L").resize((200,200))
-ss_img.save(str(time.time()) + '.png')
+print(type(ss_img))
+#ss_img.save(str(time.time()) + '.png')
